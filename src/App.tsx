@@ -16,8 +16,8 @@ function App() {
         <Nav />
         <div className='app-wrapper-content'>
 
-        <Route path = "/profile" component ={MyPosts} />
-          <Route path="/dialogs" component={Dialogs} />
+        <Route exact path = "/profile" component ={MyPosts} />
+        <Route exact path="/dialogs" component={Dialogs} />
           
         </div>
 

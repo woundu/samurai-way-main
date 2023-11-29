@@ -1,14 +1,16 @@
 import React from "react";
 import classes from "./MyPosts.module.css"
 import Post from "./Post/Post";
+import ProfileInfo from "../ProfileInfo/ProfileInfo";
 
  const MyPosts = ()=>{
     return (
         <div className={classes.content}>
-            <img src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg" alt="" />
+            
+            <ProfileInfo/>
             <div>My Posts
-                <textarea ></textarea>
-                <button>Add post</button>
+                <textarea ></textarea><br/>
+                <button className={classes.btn}>Add post</button>
                 <Post message="Hello" likes={3}/>
                 <Post message="Oleg" likes= {12} />
             </div>

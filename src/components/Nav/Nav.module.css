@@ -1,4 +1,9 @@
 .nav {
     grid-area: n;
     border-color: aqua;
+    padding: 30px;
+}
+
+.active {
+    color:gold;
 }
