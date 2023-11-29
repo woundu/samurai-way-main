@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Nav.module.css"
 
-export const Nav = ()=>{
+ const Nav = ()=>{
     return (
         <nav className={classes.nav}>
             <div><a href="">Profile</a></div>
@@ -12,3 +12,5 @@ export const Nav = ()=>{
         </nav>
     )
 }
+
+export default Nav
