@@ -1,6 +1,7 @@
 .dialogs {
     display: flex;
     justify-content: space-around;
+    
 }
 
 .dialogItems {
@@ -21,4 +22,8 @@
 
 .message {
     color:gold;
+}
+
+.wrapper {
+    display: flex;
 }
