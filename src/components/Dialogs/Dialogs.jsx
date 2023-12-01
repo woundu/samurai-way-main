@@ -9,8 +9,8 @@ import { sendMessageActionCreator } from "../../redux/dialogs-reducer";
 
 const Message = (props) => {
 
-    let onSandMessageClick = (e)=> {
-        let text=   e.target.value;
+    let onSandMessageClick = ()=> {
+        
         props.dispatch(sendMessageActionCreator())
     }
 

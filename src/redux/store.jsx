@@ -28,20 +28,20 @@ let store = {
                 { id: 3, user: "VALELYA" }
             ],
         },
-        newMessageText : ""
+        newMessageText: ""
 
     },
-    _callSubscriber () {
+    _callSubscriber() {
 
     },
-    getState () {
+    getState() {
         return this._state;
     },
     renderEntireTree() {
 
     },
 
-    dispatch (action) {
+    dispatch(action) {
 
         this._state.profilePage = profileReducer(this._state.profilePage, action)
         this._state.messagePage = dialogsReducer(this._state.messagePage, action)

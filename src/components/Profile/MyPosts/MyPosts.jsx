@@ -3,10 +3,9 @@ import classes from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import ProfileInfo from "../ProfileInfo/ProfileInfo";
 
+
 import { addPostActionCreator } from "../../../redux/profile-reducer";
 import { updateNewPostTextActionCreator } from "../../../redux/profile-reducer";
-
-
 
  const MyPosts = (props)=>{
     let postElements = props.posts?.map(p=><Post id = {p.id} message={p.message} likes = {p.likes} />)
@@ -16,15 +15,13 @@ import { updateNewPostTextActionCreator } from "../../../redux/profile-reducer";
 
     let addPost = () => {
         
-         let text =  newPostElement.current?.value 
-        // props.addPost(text)
-        // props.updateNewPostText('')
-
         props.dispatch (addPostActionCreator())
+        // props.updateNewPostText('')
     }
 
-    let onPostChange = () => {
-         let text =  newPostElement.current?.value 
+    let onPostChange = () => 
+    {
+        let text =  newPostElement.current?.value 
         // props.updateNewPostText(text)
         props.dispatch(updateNewPostTextActionCreator(text))
     }

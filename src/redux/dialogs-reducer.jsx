@@ -1,7 +1,26 @@
 const UDNEWMESSAGETEXT = "UPDATE-NEW-MESSAGE-TEXT";
 const SEND_MESSAGE = "SEND-MESSAGE"
 
-const dialogsReducer = (state, action) => {
+
+let initialState = {
+    messages: [
+        { id: 1, message: "yo" },
+        { id: 2, message: "yoyoyo" },
+        { id: 3, message: "yoyoyoyoyoyo" }
+    ],
+
+    dialogs: [
+        { id: 1, user: "DIMYCH" },
+        { id: 1, user: "ANDREY" },
+        { id: 3, user: "VALELYA" },
+    ],
+    newMessageText: "",
+}
+
+
+const dialogsReducer = (state = initialState, action) => {
+
+    debugger
 
     if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
         state.newMessageText = action.newText;
