@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./Dialogs.module.css"
 import { NavLink } from "react-router-dom";
-import { updateNewMessageTextActionCreator } from "../../redux/state";
-import { sendMessageActionCreator } from "../../redux/state";
+import { updateNewMessageTextActionCreator } from "../../redux/dialogs-reducer";
+import { sendMessageActionCreator } from "../../redux/dialogs-reducer";
 
 
 
@@ -48,21 +48,19 @@ const Dialogs = (props) => {
 
 
     return (
-        <div className={classes.dialogs}>
+        <div className="wrapper">
+               
             {props.dialogs.map((dialog) => {
                 return (
-                    <div>
+                       
                         <div key={dialog.id}>
                             <NavLink to="/dialogs/">{dialog.user}</NavLink>
                         </div>
-                    </div>
-
-
                 )
             })}
             <Message messages={props.messages} dispatch = {props.dispatch} />
-
         </div>
+        
     )
 }
 
