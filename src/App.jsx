@@ -22,7 +22,7 @@ function App(props) {
         <div className='app-wrapper-content'>
 
           <Route exact path="/profile" render={() => <Profile posts = {props.state.profilePage.posts}  dispatch = {props.dispatch} newPostText = {props.state.profilePage.newPostText}/>} />
-          <Route exact path="/dialogs" render={() => <Dialogs dialogs = {props.state.messagePage.dialogs}  messages = {props.state.messagePage.messages}/>} />
+          <Route exact path="/dialogs" render={() => <Dialogs dialogs = {props.state.messagePage.dialogs}  messages = {props.state.messagePage.messages} dispatch={props.dispatch} newMessageText = {props.state.messagePage.newMessageText}/>} />
 
         </div>
 

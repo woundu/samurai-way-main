@@ -1,4 +1,7 @@
-
+const ADD_POST = "ADD-POST";
+const UDNEWPOSTTEXT = "UPDATE-NEW-POST-TEXT";
+const UDNEWMESSAGETEXT = "UPDATE-NEW-MESSAGE-TEXT";
+const SEND_MESSAGE = "SEND-MESSAGE"
 
 let store = {
     _state: {
@@ -23,34 +26,18 @@ let store = {
                 { id: 3, user: "VALELYA" }
             ],
         },
+        newMessageText : ""
 
     },
+    _callSubscriber () {
 
+    },
     getState () {
         return this._state;
     },
     renderEntireTree() {
 
     },
-
-    // addPost(postMessage) {
-
-    //     let newPost = {
-    //         id: 4,
-    //         message: postMessage,
-    //         likes: 123
-    //     }
-    //     this._state.profilePage.posts.push(newPost)
-    //     renderEntireTree(this.getState());
-
-    // },
-
-    // updateNewPostText(newText) {
-
-    //     this._state.profilePage.newPostText = newText;
-    //     renderEntireTree(this.getState());
-
-    // },
 
     dispatch (action) {
         if (action.type === 'ADD-POST'){
@@ -60,23 +47,64 @@ let store = {
                 likes: 123
             }
             this._state.profilePage.posts.push(newPost)
-            renderEntireTree(this.getState());
+            this._callSubscriber(this._state)
         }
         else if (action.type === "UPDATE-NEW-POST-TEXT") {
             this._state.profilePage.newPostText = action.newText;
-            renderEntireTree(this.getState());
+            this._callSubscriber(this._state)
 
+        }
+        else if (action.type === "UPDATE-NEW-MESSAGE-TEXT"){
+            this._state.messagePage.newMessageText = action.newText;
+            this._callSubscriber(this._state)
+        }
+        else if (action.type ==="SEND-MESSAGE") {
+            let body = this._state.messagePage.newMessageText;
+           
+            this._state.messagePage.messages.push({ id: 4, message:body })
+            this._state.messagePage.newMessageText = ""
+            this._callSubscriber(this._state)
         }
     },
 
     subscribe(observer) {
-        renderEntireTree = observer
+        this._callSubscriber = observer
     }
 
 }
 
-let renderEntireTree = () => {
 
+
+export const addPostActionCreator = ()=> {
+    
+    return {
+        type:ADD_POST,
+       
+    }
+}
+
+export const updateNewPostTextActionCreator = (text) => {
+    
+    return {
+        type: UDNEWPOSTTEXT,
+        newText: text,
+    }
+}
+
+export const sendMessageActionCreator = ()=> {
+    
+    return {
+        type:SEND_MESSAGE,
+       
+    }
+}
+
+export const updateNewMessageTextActionCreator = (text) => {
+    
+    return {
+        type: UDNEWMESSAGETEXT,
+        newText: text,
+    }
 }
 
 

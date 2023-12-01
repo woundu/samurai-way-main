@@ -3,8 +3,8 @@ import classes from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import ProfileInfo from "../ProfileInfo/ProfileInfo";
 
-
-
+import { addPostActionCreator } from "../../../redux/state";
+import { updateNewPostTextActionCreator } from "../../../redux/state";
 
 
 
@@ -20,13 +20,13 @@ import ProfileInfo from "../ProfileInfo/ProfileInfo";
         // props.addPost(text)
         // props.updateNewPostText('')
 
-        props.dispatch ({type: "ADD-POST"})
+        props.dispatch (addPostActionCreator())
     }
 
     let onPostChange = () => {
          let text =  newPostElement.current?.value 
         // props.updateNewPostText(text)
-        props.dispatch({type: "UPDATE-NEW-POST-TEXT" , newText : text})
+        props.dispatch(updateNewPostTextActionCreator(text))
     }
    
     return (
